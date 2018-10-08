@@ -1,16 +1,117 @@
 @charset "utf-8";
-* 						{margin: 0; padding: 0;}
-body						{font: 16px Georgia, serif;}
+* {
+	margin: 0; padding: 0;
+}
+body{
+	font-size: 18px;
+	
+	font-family: cursive;
+}
 
-#page-wrap				{margin: 2% auto; color: white; height: 500px;}
-#page-wrap >.main 		{border: 1px solid #999; padding: 1%;
-						 margin-bottom: 1px; color: black;}
+#page-wrap{
+	margin: 2% auto; 
+	color: white; 
+	height: 800px;
+}
+#page-wrap >.main{
+	/*border: 1px solid grey; */
+	padding: 1%;
+ 	margin-bottom: 1px; 
+ 	color: white;
+}
 
-section > div				{padding: 20px;}
-header, nav, section		{background: #eee; text-align: center;}
-footer					{background: #eee; text-align: center;}
-nav span             				{ margin: 0px 10px 0px 0px;
-						width: 100%;
-						display: inline-block;}
+section > div				{
+	padding: 20px;
+}
+header, nav, section{
+	/*background: #eee; */
+	background-color: #000;
+	text-align: center;
+}
+footer{
+	/*background: #eee; */
+	background-color: #000;
+	text-align: center;
+}
+nav span{ 
+	margin: 0px 10px 0px 0px;
+	width: 100%;
+	display: inline-block;
+	}
 
-#ErrorMsgs          		 { color: #f61; font-size: smaler}
+#ErrorMsgs{ 
+	color: #f61; 
+	font-size: smaler
+}
+.titulo{
+
+	font-size: 32px;
+	font-family: cursive;
+	font-weight: normal;
+	color: #25da89;
+
+}
+a{
+	color: white;
+	text-decoration: none;
+}
+#n1{
+	text-align: left;
+}
+#logIn{
+	text-align: right;
+}
+#registro{
+	margin-right: 20px;
+}
+.creditosLyrics{
+ width: 45%;
+ float: left;
+ height: 800px;
+
+}
+.creditosLyrics h3{
+	 font-weight: lighter;
+}
+.creditosImg{
+width: 45%;
+float: left;
+height: 800px;
+}
+.formPregunta{
+	text-align: left;
+}
+.formPregunta  input{
+width: 550px;
+height: 20px;
+border-radius: 12px;
+}
+.formPregunta label{
+	width: 200px;
+	margin-right: 20px;
+	display: block;
+	float: left;
+	margin-left: 20px;
+}
+#tema{
+	width: 155px;
+}
+#complejidad{
+	width: 155px;
+}
+.compleTema{
+	float: left;
+}
+#enviarBoton  {
+	float: right;
+	width: 220px;
+	height: 40px;
+	background-color: #25da89;
+	margin-right: 12px;
+	margin-bottom: 12px;
+
+
+}
+footer{
+	font-size: 12px;
+}
