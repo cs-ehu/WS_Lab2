@@ -13,7 +13,7 @@
 		   media='only screen and (max-width: 480px)'
 		   href='estilos/smartphone.css' />
 		    <script src="js/jquery.min.js"></script>
-		     <script src="js/preguntaHTML5.js"></script>
+		    <!-- <script src="js/preguntaHTML5.js"></script>-->
   </head>
   <body>
   <div id='page-wrap'>
@@ -38,10 +38,10 @@
    		 <legend>Datos de la pregunta:</legend>
    		  <br/>
 		  <label for="email">Email:*</label>
-		  <input type="text" name="email" id="email" placeholder="Mickey0003@ikasle.ehu.es" value="" class="inputAncho" required />
+		  <input type="email" name="email" id="email" placeholder="Mickey0003@ikasle.ehu.es" pattern="[a-zA-Z0-9]*[0-9]{3}@ikasle.ehu.eus" value="" class="inputAncho" required />
 		  <br/><br/>
 		  <label for="enunciado">Enunciado de la pregunta:*</label>
-		   <input type="text" name="enunciado" id="enunciado" value="" class="inputAncho" required />
+		   <input type="text" name="enunciado" id="enunciado" value="" class="inputAncho" minlength="10" required />
 		  <br/><br/>
 		  <label for="correcta">Respuesta Correcta:*</label>
 		   <input type="text" name="correcta"  id="correcta" value="" class="inputAncho" required />
@@ -57,7 +57,7 @@
 		  <br/><br/>
 		  <div class="compleTema">
 		  <label for="complejidad">Complejidad(0..5):*</label>
-		   <input type="text" name="complejidad"  value="" id="complejidad" required />
+		   <input type="text" name="complejidad"  pattern="[0-5]" value="" id="complejidad" required />
 		</div>
 		  <div class="compleTema">
 		  <label for="tema">Tema(subject)*</label>
@@ -72,7 +72,7 @@
 	</div>
     </section>
 	<footer class='main' id='f1'>
-		<a href='https://github.com/ilarue'>Link GITHUB</a>
+		<a href='https://github.com/ilarue/WS_Lab2'>Link GITHUB</a>
 	</footer>
 </div>
 </body>
