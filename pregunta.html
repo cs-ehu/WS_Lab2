@@ -34,7 +34,7 @@
     <section class="main" id="s1">
     
 	<div>
-		<form id='fpreguntas' name='fpreguntas' action="prueba.php"  method="" class="formPregunta">
+		<form id='fpreguntas' name='fpreguntas' action="InsertarPreguntaConFoto.php"  method="POST" class="formPregunta" enctype="multipart/form-data">
 		<fieldset>
    		 <legend>Datos de la pregunta:</legend>
    		  <br/>
@@ -66,8 +66,8 @@
 		</div>
 		  <br/>
 		   <label for="imgAdd">Imagen</label>
-		   <input type="file" name="imgAdd"   id="imgAdd" size="60" //>
-		   <img src="" id="img"/>
+		   <input type="file" name="imgAdd"   id="imgAdd" size="60" />
+		   <div id="muestraImg"></div>
 		  <input type="button" value="Enviar Solicitud" id="enviarBoton" />
 		</fieldset>
 		</form>
