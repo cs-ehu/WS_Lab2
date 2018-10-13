@@ -10,7 +10,7 @@ $incorrecta3 = $_POST['incorrecta3'];
 $complejidad = $_POST['complejidad'];
 $tema = $_POST['tema'];
 
-
+if($foto=$_FILES["imgAdd"]["name"]){
 $foto=$_FILES["imgAdd"]["name"];
 $fototemp=$_FILES["imgAdd"]["tmp_name"];
  ini_set('post_max_size','100M');
@@ -22,7 +22,9 @@ $nuevaimg=imagecreatetruecolor(200,180);
 $idnuevaimg=imagecreatefromjpeg($fototemp);
 imagecopyresized($nuevaimg,$idnuevaimg,0,0,0,0,200,180,$ancho,$alto);
 imagejpeg($nuevaimg,"img/".$foto);
+} else{
 if($foto=="")$foto="quiz.jpg";
+}
 $sql ="INSERT INTO Preguntas (email , enunciado , correcta , incorrecta1, incorrecta2, incorrecta3, complejidad, tema, img) VALUES 
 ('$email' , '$enunciado','$correcta', '$incorrecta1', '$incorrecta2', '$incorrecta3', '$complejidad','$tema','$foto' )";
 
