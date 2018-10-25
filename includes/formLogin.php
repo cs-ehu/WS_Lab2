@@ -15,7 +15,7 @@
 		   <input type="password" name="password"  id="password" value="" class="inputAncho"   />
 		  <br/><br/>
 		  <br/>
-		  <input type="submit" value="LogIn" id="enviarLogin" />
+		  <input type="button" value="LogIn" id="enviarLogin" />
 		</fieldset>
 		</form>
 	</div>

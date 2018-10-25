@@ -57,4 +57,7 @@ $(document).ready(function(){
 		    else $("#fregistro").submit();
 		   } 				
 	});
+		$("#enviarLogin").click(function(){
+			$("#flogin").submit();
+		});
 });
