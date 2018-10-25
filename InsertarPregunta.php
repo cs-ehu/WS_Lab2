@@ -13,7 +13,7 @@ $sql ="INSERT INTO Preguntas (email , enunciado , correcta , incorrecta1, incorr
 ('$email' , '$enunciado','$correcta', '$incorrecta1', '$incorrecta2', '$incorrecta3', '$complejidad','$tema' )";
 
 if (!mysqli_query($mysqli ,$sql)){
-	echo "<p> <a href='pregunta.html'>Volver a intentarlo </a></p>";
+	echo "<p> <a href='pregunta.php'>Volver a intentarlo </a></p>";
 	die('Error: '.mysqli_error($mysqli));
 
 

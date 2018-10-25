@@ -9,7 +9,7 @@ body{
 }
 
 #page-wrap{
-	margin: 2% auto; 
+	/*margin: 2% auto;*/	
 	color: white; 
 	height: 800px;
 }
@@ -102,7 +102,8 @@ border-radius: 12px;
 .compleTema{
 	float: left;
 }
-#enviarBoton  {
+
+#enviarLogin, #enviarRegistro, #enviarBoton {
 	float: right;
 	width: 220px;
 	height: 40px;

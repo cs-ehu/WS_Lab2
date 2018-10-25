@@ -15,19 +15,8 @@
   </head>
   <body>
   <div id='page-wrap'>
-	<header class='main' id='h1'>
-		<div id="logIn">
-		<span class="right" id="registro"><a href="registro">Registrarse</a></span>
-      		<span class="right"><a href="login">Login</a></span>
-      		<span class="right" style="display:none;"><a href="/logout">Logout</a></span>
-       </div>
-		<h2 class="titulo">Quiz: el juego de las preguntas</h2>
-    </header>
-	<nav class='main' id='n1' role='navigation'>
-		<span><a href='layout.html'>Inicio</a></span><br/><br/>
-		<span><a href='pregunta.html'>Insertar Pregunta</a></span><br/><br/>
-		<span><a href='creditos.html'>Creditos</a></span>
-	</nav>
+	
+	<?php include('includes/headerNav.php')?>
     <section class="main" id="s1">
     
 	<div>

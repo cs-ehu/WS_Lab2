@@ -2,8 +2,6 @@
 $(document).ready(function(){
 
 	$("#enviarBoton").click(function(){
-
-		
 		//$(this).hide();
 		var email = $("#email").val();
 		var enunciado = $("#enunciado").val();
@@ -38,5 +36,25 @@ $(document).ready(function(){
 
 		}
 
+	});
+
+	$("#enviarRegistro").click(function(){
+		var email = $("#email").val();
+		var nombre = $("#nombre").val();
+		var password = $("#password").val();
+		var password2 =$("#password2").val();
+		if(email == "" || nombre == "" || password == "" || password2 == ""){
+			alert("Por favor, introduce todos los campos obligatorios");
+		}else{
+			var patt1 =/[a-zA-Z0-9]*[0-9]{3}@ikasle.ehu.eus/;
+			var patt2 = /[a-zA-Z0-9]*\s{1}[a-zA-Z0-9]*/;
+		    var result = email.match(patt1);
+		    var nombreApellido = nombre.match(patt2);
+		    if(!result) alert("El email ha de ser terminado en tres cifras y @ikasle.ehu.eus");		
+		    else if(!nombreApellido)alert("Debes darme el nombre y al menos un apellido, por favor");
+		    else if(password.length<8  ) alert("El password ha de tener 8 caracteres como mínimo");
+		    else if(password != password2) alert("El password ha de ser el mismo");
+		    else $("#fregistro").submit();
+		   } 				
 	});
 });

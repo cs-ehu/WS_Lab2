@@ -1,3 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<title>Registro</title>
+    <link rel='stylesheet' type='text/css' href='estilos/style.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		   href='estilos/wide.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (max-width: 480px)'
+		   href='estilos/smartphone.css' />
+		    <script src="js/jquery.min.js"></script>
+		     <script src="js/pregunta.js"></script>
+		     <script src="js/cargaImg.js"></script>
+  </head>
+
+  <body>
+  <div id='page-wrap'>
+<?php include('includes/headerNavVerPreguntas.php')?>
+<section class="main" id="s1" style="height: auto;width: auto;">
+	<div>
 <?php
 include("includes/conexiones.php");
 
@@ -23,3 +47,11 @@ if (!mysqli_query($mysqli ,$sql)){
 }
 mysqli_close($mysqli);
 ?>
+</div>
+    </section>
+	<footer class='main' id='f1'>
+		<a href='https://github.com/ilarue/WS_Lab2' target="_blank">Link GITHUB</a>
+	</footer>
+</div>
+</body>
+</html>
