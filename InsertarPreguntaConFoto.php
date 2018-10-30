@@ -1,5 +1,4 @@
 <?php
-
 include("includes/conexiones.php");
 $email= $_POST['email'];
 $enunciado = $_POST['enunciado'];
@@ -7,12 +6,9 @@ $correcta = $_POST['correcta'];
 $incorrecta1 = $_POST['incorrecta1'];
 $incorrecta2 = $_POST['incorrecta2'];
 $incorrecta3 = $_POST['incorrecta3'];
-$complejidad = $_POST['complejidad'];
+$complejidad = (int) $_POST['complejidad'];
 $tema = $_POST['tema'];
-
-//Validaciones0>complejidad || complejidad>5
-if(preg_match("/[a-zA-Z0-9]*[0-9]{3}@ikasle.ehu.eus/", $email) && (0>$complejidad) && ($complejidad<6) && $enunciado != ""  && $correcta != "" && $incorrecta1 != "" && $incorrecta2 != ""  && $incorrecta3 != ""  && $tema != ""){
-
+if(preg_match("/[a-zA-Z0-9]*[0-9]{3}@ikasle.ehu.eus/", $email) && (0<$complejidad) && ($complejidad<6) && $enunciado != ""  && $correcta != "" && $incorrecta1 != "" && $incorrecta2 != ""  && $incorrecta3 != ""  && $tema != ""){
 if($foto=$_FILES["imgAdd"]["name"]){
 $foto=$_FILES["imgAdd"]["name"];
 $fototemp=$_FILES["imgAdd"]["tmp_name"];
@@ -28,20 +24,19 @@ imagejpeg($nuevaimg,"img/".$foto);
 } else{
 if($foto=="")$foto="quiz.jpg";
 }
-$sql ="INSERT INTO Preguntas (email , enunciado , correcta , incorrecta1, incorrecta2, incorrecta3, complejidad, tema, img) VALUES 
+$sql ="INSERT INTO preguntas (email , enunciado , correcta , incorrecta1, incorrecta2, incorrecta3, complejidad, tema, img) VALUES 
 ('$email' , '$enunciado','$correcta', '$incorrecta1', '$incorrecta2', '$incorrecta3', '$complejidad','$tema','$foto' )";
 
 if (!mysqli_query($mysqli ,$sql)){
 	echo "<p> <a href='pregunta.php'>Volver a intentarlo </a></p>";
 	die('Error: '.mysqli_error($mysqli));
-
-
-
 }
 echo "1 record added";
 echo "<p> <a href='VerPreguntasConFoto.php'> Ver preguntas</a></p>";
 
-}
-
+}else{
+	echo "No se ha podido insertar la nueva pregunta.";
+	echo "<p> <a href='VerPreguntasConFoto.php'> Ver preguntas</a></p>";
+} 
 mysqli_close($mysqli);
 ?>

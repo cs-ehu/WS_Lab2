@@ -25,7 +25,7 @@
 <?php
 include("includes/conexiones.php");
 
-$sql ="SELECT * FROM Preguntas";
+$sql ="SELECT * FROM preguntas";
 $resultado = mysqli_query($mysqli, $sql);
 
 if(mysqli_num_rows($resultado) >0){
