@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Laboratorio xml</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $.get('usuarios.xml', function(d){
+                var listacorreos = $(d).find('email');
+                for (var i = 0; i < listacorreos.length; i++)
+                {
+                    $('#lista').append($('<option>',{
+                        value: listacorreos[i].childNodes[0].nodeValue,
+                        text: listacorreos[i].childNodes[0].nodeValue
+                    }));                }
+            });
+            $('select').on('change', function() {
+              var selectedEmail = this.value;
+                $.get('usuarios.xml', function(d){
+                    var listacorreos = $(d).find('usuario');
+                    for (var i = 0; i < listacorreos.length; i++){
+                         x = listacorreos[i].childNodes;
+                        for (var j = 0; j < x.length; j++) { 
+
+                            var valorNombre;
+                            var valorEmail;
+                            var apellido1;
+                            var apellido2;
+                            var telefono;
+                            if(x[j].nodeName == 'nombre') 
+                                valorNombre =x[j].childNodes[0].nodeValue; 
+                            if(x[j].nodeName == 'email' )
+                                valorEmail =x[j].childNodes[0].nodeValue;
+                            if(x[j].nodeName == 'apellido1' )
+                                valorApellido1 =x[j].childNodes[0].nodeValue;
+                            if(x[j].nodeName == 'apellido2' )
+                                valorApellido2 =x[j].childNodes[0].nodeValue;
+                            if(x[j].nodeName == 'telefono' )
+                                valorTelefono =x[j].childNodes[0].nodeValue;
+                            if(valorEmail == selectedEmail){
+                                $('#cnombre').val(valorNombre);
+                                $('#capellido1').val(valorApellido1);
+                                $('#capellido2').val(valorApellido2);
+                                $('#ctelefono').val(valorTelefono);
+                               }
+                            
+                        }
+                    }
+
+
+                });
+
+            });
+        });
+        </script>
+    </head>
+    <body>
+    <h1>Lista de correos obtenida de un fichero xml</h1>
+    <h2>Selecciona el correo para ver los datos del alumno</h2><br/>
+        <SELECT NAME="lista" id="lista" ></SELECT>
+        <br/><br/>
+        <label for="cnombre">Nombre:</label>
+        <input type="text" name="cnombre" id="cnombre" value="" />
+        <br/><br/>
+        <label for="capellido1">Apellido1:</label>
+        <input type="text" name="capellido1" id="capellido1" value="" />
+        <br/><br/>
+        <label for="capellido2">Apellido2:</label>
+        <input type="text" name="capellido2" id="capellido2" value="" />
+        <br/><br/>
+        <label for="ctelefono">Tel&eacute;fono:</label>
+        <input type="text" name="ctelefono" id="ctelefono" value="" />
+   </body>
+</html>

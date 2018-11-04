@@ -39,4 +39,29 @@ echo "<p> <a href='VerPreguntasConFoto.php'> Ver preguntas</a></p>";
 	echo "<p> <a href='VerPreguntasConFoto.php'> Ver preguntas</a></p>";
 } 
 mysqli_close($mysqli);
+
+
+//XML
+
+$xml = simplexml_load_file('preguntas.xml');
+$assessmentItem = $xml->addChild('assessmentItem');
+$assessmentItem->addAttribute('subject',$_POST['tema']);
+$assessmentItem->addAttribute('author',$_POST['email']);
+$itemBody = $assessmentItem->addChild('itemBody');
+$itemBody->addChild('p',$_POST['enunciado']);
+
+$correctResponse = $assessmentItem->addChild('correctResponse');
+$value = $correctResponse->addChild('value',$_POST['correcta']);
+
+$incorrectResponses = $assessmentItem->addChild('incorrectResponses');
+$incorrectResponses->addChild('value', $_POST['incorrecta1']);
+$incorrectResponses->addChild('value', $_POST['incorrecta2']);
+$incorrectResponses->addChild('value', $_POST['incorrecta3']);
+
+
+//echo $xml->asXML();
+$xml->asXML('preguntas2.xml');
+
+if($xml === false) echo "Ha habido alg&uacute;n error en el documento xml";
+else echo "<p> <a href='preguntas2.xml'>Ver preguntas XML</a></p>";
 ?>

@@ -18,6 +18,7 @@
 		<?php if(isset($_GET['email'])){?>
 		<li style="float: left;margin-right: 12px;"><a href='pregunta.php'>Insertar Pregunta | </a></li>		
 		<li style="float: left;margin-right: 12px;"><a href='VerPreguntasConFoto.php'>Ver Preguntas | </a></li>
+		<li style="float: left;margin-right: 12px;"><a href='VerPreguntasXML.php'>Ver Preguntas XML | </a></li>
 	<?php }?>
 		<li style="float: left;margin-right: 12px;"><a href='creditos.php'>Creditos</a></li>
 		</ul>

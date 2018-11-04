@@ -19,6 +19,7 @@
 		<?php if(isset($_GET['email'])){?>
 		<span><a href='pregunta.php'>Insertar Pregunta</a></span><br/><br/>
 		<span><a href='VerPreguntasConFoto.php'>Ver Preguntas</a></span><br/><br/>
+		<span><a href='VerPreguntasXML.php'>Ver Preguntas XML</a></span><br/><br/>
 	<?php }?>
 		<span><a href='creditos.php'>Creditos</a></span>
 	</nav>
