@@ -2,6 +2,8 @@
 include("includes/conexiones.php");
 $email= $_POST['email'];
 $enunciado = $_POST['enunciado'];
+$usuario = $_POST['usuario'];
+$fotoUsuario = $_POST['fotoUsuario'];
 $correcta = $_POST['correcta'];
 $incorrecta1 = $_POST['incorrecta1'];
 $incorrecta2 = $_POST['incorrecta2'];
@@ -32,11 +34,11 @@ if (!mysqli_query($mysqli ,$sql)){
 	die('Error: '.mysqli_error($mysqli));
 }
 echo "1 record added";
-echo "<p> <a href='VerPreguntasConFoto.php'> Ver preguntas</a></p>";
+echo "<p> <a href='VerPreguntasConFoto.php?usuario=".$usuario."&foto=".$fotoUsuario."&email=".$email."'> Ver preguntas</a></p>";
 
 }else{
 	echo "No se ha podido insertar la nueva pregunta.";
-	echo "<p> <a href='VerPreguntasConFoto.php'> Ver preguntas</a></p>";
+	echo "<p> <a href='VerPreguntasConFoto.php?usuario=".$usuario."&foto=".$fotoUsuario."&email=".$email."'> Ver preguntas</a></p>";
 } 
 mysqli_close($mysqli);
 
@@ -63,5 +65,5 @@ $incorrectResponses->addChild('value', $_POST['incorrecta3']);
 $xml->asXML('preguntas2.xml');
 
 if($xml === false) echo "Ha habido alg&uacute;n error en el documento xml";
-else echo "<p> <a href='preguntas2.xml'>Ver preguntas XML</a></p>";
+else echo "<p> <a href='preguntas2.xml?usuario=".$usuario."&foto=".$fotoUsuario."&email=".$email."'>Ver preguntas XML</a></p>";
 ?>
