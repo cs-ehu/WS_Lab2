@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Laboratorio 4</title>
+        
+    </head>
+    <body>
+    <h1>Laboratorio 4-Tarea opcional 2</h1>
+    <p>En esta tarea mediante la funci&oacute;n setInterval llamo a contadorUsuarios.php que busca en la base de datos porque cuando hacen el login se introduce un dato en la tabla de usuarios de que está logueado, que es lo que consultamos cada intervalo</p>
+    <p>Archivos:<br/> 1-gestionarPreguntas.php<br/>2-contadorUsuarios.php</p>
+    <p>"setInterval(function(){
+      document.getElementById("contadorUsuarios").value="";
+       if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+      } else {  // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+
+          document.getElementById("contadorUsuarios").value=this.responseText;
+        }
+      }
+     xmlhttp.open("GET",  "contadorUsuarios.php",true );
+     xmlhttp.send();
+  }, 2000
+   );"</p>"<?php
+include("includes/conexiones.php");   
+$sql ="SELECT * FROM usuarios WHERE logueado = 1 ";
+$result = mysqli_query($mysqli ,$sql);
+if (mysqli_num_rows($result) >0){
+$contadorUsuarios= mysqli_num_rows($result) ;
+echo $contadorUsuarios;
+}
+else echo '0';
+?>
+"<p>
+    <img src="../img/Captura.png" width="800" height="auto" />
+    <img src="../img/Captura2.PNG" width="800" height="auto" />   </body>
+</html>

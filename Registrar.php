@@ -5,6 +5,7 @@ $email= $_POST['email'];
 $nombre = $_POST['nombre'];
 $password = $_POST['password'];
 $password2 = $_POST['password2'];
+$contadorUsuarios =(int) $_POST['contadorUsuarios'];
 if($foto=$_FILES["imgAdd"]["name"]){
 	$foto=$_FILES["imgAdd"]["name"];
 	$fototemp=$_FILES["imgAdd"]["tmp_name"];
@@ -23,7 +24,7 @@ $sql ="INSERT INTO usuarios (email , nombre , password , foto) VALUES
 if (!mysqli_query($mysqli ,$sql)){
 	header('Location:Registrar.php');
 	exit();	}
-header('Location:pregunta.php?usuario='.$nombre."&email=".$email."&foto=".$foto);
+header('Location:pregunta.php?usuario='.$nombre."&email=".$email."&foto=".$foto."&contadorUsuarios=".$contadorUsuarios);
 exit();	
 }
 ?>

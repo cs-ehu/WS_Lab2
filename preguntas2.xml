@@ -31,4 +31,4 @@
 			<value> Ninguna es correcta </value>
 		</incorrectResponses>
 	</assessmentItem>
-<assessmentItem subject="CSS" author="mikey9902@ikasle.ehu.eus"><itemBody><p>primer enunciado</p></itemBody><correctResponse><value>correcta</value></correctResponse><incorrectResponses><value>incorrecta1</value><value>incorrecta2</value><value>incorrecta3</value></incorrectResponses></assessmentItem></assessmentItems>
+<assessmentItem subject="otros" author="consuelo111@ikasle.ehu.eus"><itemBody><p>insertar ajax xml</p></itemBody><correctResponse><value>correcta</value></correctResponse><incorrectResponses><value>incorrecta1</value><value>incorrecta2</value><value>incorrecta3</value></incorrectResponses></assessmentItem></assessmentItems>

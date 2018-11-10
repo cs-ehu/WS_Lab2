@@ -3,11 +3,15 @@ include("includes/conexiones.php");
 if(isset($_POST['email']) && isset($_POST['password'])){
 $email= $_POST['email'];
 $password = $_POST['password'];
+$contadorUsuarios=0;
 $sql ="SELECT * FROM usuarios WHERE email='$email' AND password= '$password' ";
 $result = mysqli_query($mysqli ,$sql);
 if (mysqli_num_rows($result) >0){
+$contadorUsuarios= ($contadorUsuarios + 1);
 $usuarioLogueado = mysqli_fetch_array($result);
-header('Location:pregunta.php?usuario='.$usuarioLogueado['nombre']."&email=".$usuarioLogueado['email']."&foto=".$usuarioLogueado['foto']);
+$sqlLog="UPDATE usuarios SET logueado = 1 WHERE email='$email' AND password= '$password'";
+mysqli_query($mysqli ,$sqlLog);
+header('Location:pregunta.php?usuario='.$usuarioLogueado['nombre']."&email=".$usuarioLogueado['email']."&foto=".$usuarioLogueado['foto']."&contadorUsuarios=".$contadorUsuarios);
 exit();	
 }else{
 header('Location:Login.php?errorLogIn=errorLogIn&errorEmail='.$email);

@@ -103,15 +103,20 @@ border-radius: 12px;
 	float: left;
 }
 
-#enviarLogin, #enviarRegistro, #enviarBoton {
+#enviarLogin, #enviarRegistro, #enviarBoton, #enviarBotonAjax {
 	float: right;
 	width: 220px;
 	height: 40px;
 	background-color: #25da89;
 	margin-right: 12px;
 	margin-bottom: 12px;
-
-
+}
+#verPreguntas, #insertarPregunta{
+	width: 220px;
+	height: 40px;
+	background-color: #25da89;
+	margin-right: 12px;
+	margin-bottom: 12px;
 }
 footer{
 	font-size: 12px;

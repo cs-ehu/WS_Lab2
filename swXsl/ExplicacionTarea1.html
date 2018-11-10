@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Laboratorio 4</title>
+        
+    </head>
+    <body>
+    <h1>Laboratorio 4-Tarea opcional 1</h1>
+    <p>En esta tarea mediante la funci&oacute;n setInterval llamo a contadorPreguntas.php que busca en preguntas2.xml</p>
+    <p>Archivos:<br/> 1-gestionarPreguntas.php<br/>2-contadorPreguntas.php</p>
+    <p>"setInterval(function(){
+          document.getElementById("contadorPreguntas").value="";
+           if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+          } else {  // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+
+              document.getElementById("contadorPreguntas").value=this.responseText;
+            }
+          }
+
+         var email =document.getElementById("email").value;
+         xmlhttp.open("GET",  "contadorPreguntas.php?email="+email,true );
+         xmlhttp.send();
+    }, 2000
+     );"</p>
+    <img src="../img/Captura.png" width="800" height="auto" />
+       
+   </body>
+</html>

@@ -33,6 +33,7 @@
 		   <input type="text" name="enunciado" id="enunciado" value="" class="inputAncho" />
 		   <input type="hidden" name="usuario" value="<?php if(isset($_GET['usuario'])) echo $_GET['usuario'];?>" />
 		   <input type="hidden" name="fotoUsuario" value="<?php if(isset($_GET['foto'])) echo $_GET['foto'];?>" />
+		   <input type="hidden" name="contadorUsuarios" value="<?php if(isset($_GET['contadorUsuarios'])) echo $_GET['contadorUsuarios'];?>" />
 		  <br/><br/>
 		  <label for="correcta">Respuesta Correcta:*</label>
 		   <input type="text" name="correcta"  id="correcta" value="" class="inputAncho" />

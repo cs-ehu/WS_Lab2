@@ -15,6 +15,7 @@
 		  <br/><br/>
 		  <label for="password2">Introduca de nuevo el password:*</label>
 		   <input type="password" name="password2"  id="password2" value="" class="inputAncho"    />
+		   <input type="hidden" name="contadorUsuarios"  value="1"     />
 		  <br/><br/>
 		  <br/>
 		   <label for="imgAdd">Foto</label>

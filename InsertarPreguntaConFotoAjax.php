@@ -11,7 +11,6 @@ $incorrecta3 = $_POST['incorrecta3'];
 $complejidad = (int) $_POST['complejidad'];
 $contadorUsuarios = (int) $_POST['contadorUsuarios'];
 $tema = $_POST['tema'];
-if(preg_match("/[a-zA-Z0-9]*[0-9]{3}@ikasle.ehu.eus/", $email) && (0<$complejidad) && ($complejidad<6) && $enunciado != ""  && $correcta != "" && $incorrecta1 != "" && $incorrecta2 != ""  && $incorrecta3 != ""  && $tema != ""){
 if($foto=$_FILES["imgAdd"]["name"]){
 $foto=$_FILES["imgAdd"]["name"];
 $fototemp=$_FILES["imgAdd"]["tmp_name"];
@@ -29,24 +28,13 @@ if($foto=="")$foto="quiz.jpg";
 }
 $sql ="INSERT INTO preguntas (email , enunciado , correcta , incorrecta1, incorrecta2, incorrecta3, complejidad, tema, img) VALUES 
 ('$email' , '$enunciado','$correcta', '$incorrecta1', '$incorrecta2', '$incorrecta3', '$complejidad','$tema','$foto' )";
-
-if (!mysqli_query($mysqli ,$sql)){
-	echo "<p> <a href='pregunta.php'>Volver a intentarlo </a></p>";
-	die('Error: '.mysqli_error($mysqli));
-}
-echo "1 record added";
-echo "<p> <a href='VerPreguntasConFoto.php?usuario=".$usuario."&foto=".$fotoUsuario."&email=".$email."&contadorUsuarios=".$contadorUsuarios."'> Ver preguntas</a></p>";
-
-}else{
-	echo "No se ha podido insertar la nueva pregunta.";
-	echo "<p> <a href='VerPreguntasConFoto.php?usuario=".$usuario."&foto=".$fotoUsuario."&email=".$email."&contadorUsuarios=".$contadorUsuarios."'> Ver preguntas</a></p>";
-} 
+mysqli_query($mysqli ,$sql);
 mysqli_close($mysqli);
 
 
 //XML
 
-$xml = simplexml_load_file('preguntas.xml');
+$xml = simplexml_load_file('preguntas2.xml');
 $assessmentItem = $xml->addChild('assessmentItem');
 $assessmentItem->addAttribute('subject',$_POST['tema']);
 $assessmentItem->addAttribute('author',$_POST['email']);
@@ -61,10 +49,6 @@ $incorrectResponses->addChild('value', $_POST['incorrecta1']);
 $incorrectResponses->addChild('value', $_POST['incorrecta2']);
 $incorrectResponses->addChild('value', $_POST['incorrecta3']);
 
-
-//echo $xml->asXML();
 $xml->asXML('preguntas2.xml');
 
-if($xml === false) echo "Ha habido alg&uacute;n error en el documento xml";
-else echo "<p> <a href='preguntas2.xml?usuario=".$usuario."&foto=".$fotoUsuario."&email=".$email."'>Ver preguntas XML</a></p>";
 ?>
