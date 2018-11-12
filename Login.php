@@ -11,7 +11,7 @@ $contadorUsuarios= ($contadorUsuarios + 1);
 $usuarioLogueado = mysqli_fetch_array($result);
 $sqlLog="UPDATE usuarios SET logueado = 1 WHERE email='$email' AND password= '$password'";
 mysqli_query($mysqli ,$sqlLog);
-header('Location:pregunta.php?usuario='.$usuarioLogueado['nombre']."&email=".$usuarioLogueado['email']."&foto=".$usuarioLogueado['foto']."&contadorUsuarios=".$contadorUsuarios);
+header('Location:gestionarPreguntas.php?usuario='.$usuarioLogueado['nombre']."&email=".$usuarioLogueado['email']."&foto=".$usuarioLogueado['foto']."&contadorUsuarios=".$contadorUsuarios);
 exit();	
 }else{
 header('Location:Login.php?errorLogIn=errorLogIn&errorEmail='.$email);

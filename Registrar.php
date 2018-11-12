@@ -24,7 +24,7 @@ $sql ="INSERT INTO usuarios (email , nombre , password , foto, logueado ) VALUES
 if (!mysqli_query($mysqli ,$sql)){
 	header('Location:Registrar.php');
 	exit();	}
-header('Location:pregunta.php?usuario='.$nombre."&email=".$email."&foto=".$foto."&contadorUsuarios=".$contadorUsuarios);
+header('Location:gestionarPreguntas.php?usuario='.$nombre."&email=".$email."&foto=".$foto."&contadorUsuarios=".$contadorUsuarios);
 exit();	
 }
 ?>
