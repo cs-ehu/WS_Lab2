@@ -19,8 +19,8 @@ if($foto=$_FILES["imgAdd"]["name"]){
 	imagecopyresized($nuevaimg,$idnuevaimg,0,0,0,0,200,180,$ancho,$alto);
 	imagejpeg($nuevaimg,"img/".$foto);
 } else{if($foto=="")$foto="quiz.jpg";}
-$sql ="INSERT INTO usuarios (email , nombre , password , foto) VALUES 
-('$email' , '$nombre','$password','$foto' )";
+$sql ="INSERT INTO usuarios (email , nombre , password , foto, logueado ) VALUES 
+('$email' , '$nombre','$password','$foto' , 1 )";
 if (!mysqli_query($mysqli ,$sql)){
 	header('Location:Registrar.php');
 	exit();	}
