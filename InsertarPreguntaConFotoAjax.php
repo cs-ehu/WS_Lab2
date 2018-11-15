@@ -11,6 +11,8 @@ $incorrecta3 = $_POST['incorrecta3'];
 $complejidad = (int) $_POST['complejidad'];
 $contadorUsuarios = (int) $_POST['contadorUsuarios'];
 $tema = $_POST['tema'];
+
+
 if($foto=$_FILES["imgAdd"]["name"]){
 $foto=$_FILES["imgAdd"]["name"];
 $fototemp=$_FILES["imgAdd"]["tmp_name"];
@@ -26,6 +28,8 @@ imagejpeg($nuevaimg,"img/".$foto);
 } else{
 if($foto=="")$foto="quiz.jpg";
 }
+
+
 $sql ="INSERT INTO preguntas (email , enunciado , correcta , incorrecta1, incorrecta2, incorrecta3, complejidad, tema, img) VALUES 
 ('$email' , '$enunciado','$correcta', '$incorrecta1', '$incorrecta2', '$incorrecta3', '$complejidad','$tema','$foto' )";
 mysqli_query($mysqli ,$sql);

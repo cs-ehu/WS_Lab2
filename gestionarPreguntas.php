@@ -22,6 +22,10 @@ $(document).ready(function(){
 		var dataString = $('#fpreguntas').serialize();
 
         //alert('Datos serializados: '+dataString);
+        var form = $('#fpreguntas')[0]; 
+		var formData = new FormData(form);
+
+        var imgAdd = $("#imgAdd").val();
 
         var email = $("#email").val();
 		var enunciado = $("#enunciado").val();
@@ -45,12 +49,17 @@ $(document).ready(function(){
 		    		if(enunciado.length <10)
 		    			alert("El enunciado de la pregunta ha de tener 10 caracteres al menos");
 		    		else{
+
 						 $.ajax({
 		                    url:'InsertarPreguntaConFotoAjax.php',
-		                    method:'POST',
-		                    data:dataString,
+		                   /* method:'POST',
+		                    data:dataString,*/
+		                    data: formData,
+    					    type: 'POST',
+    						contentType: false, 
+    						processData: false, 
 		                   success:function(data){
-		                   // alert("Ha ido bien a insertar " + data);
+		                    //alert("Ha ido bien a insertar " + data);
 		                   var sendEmail = $("#email").serialize();
         					//alert("sendEmail " + sendEmail)
 		                     $.ajax({
@@ -59,6 +68,7 @@ $(document).ready(function(){
 		                    	data: sendEmail,
 		                   		success:function(preguntas){
 		                   			//alert("ha ido bien ver " + preguntas);
+		                   			$("#muestraImg").empty();
 		                   			$("#preguntasXML").empty();
 		                    		$("#preguntasXML").append(preguntas);
 		                   			$('#fpreguntas')[0].reset();
