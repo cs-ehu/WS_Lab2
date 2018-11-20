@@ -2,7 +2,7 @@
 	<div>
 		<form id='fregistro' name='fregistro' action="Registrar.php"  method="POST" class="formPregunta" enctype="multipart/form-data">
 		<fieldset>
-   		 <legend>Registro de nuevo usuario:</legend>
+   		 <legend><?php if(isset($_GET['errorRegistro'])) echo 'Vuelve a intentarlo porque hay error de mail VIP o contraseña'; else echo 'Registro de nuevo usuario:';?></legend>
    		  <br/>
 		  <label for="email">Email:*</label>
 		  <input type="text" name="email" id="email" placeholder="Mickey0003@ikasle.ehu.es" value="" class="inputAncho" value="" class="inputAncho"  />

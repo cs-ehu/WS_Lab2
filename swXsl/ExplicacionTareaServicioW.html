@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Laboratorio 4</title>
+        
+    </head>
+    <body>
+    <h1>Laboratorio 4-Tarea opcional 1 Servicio Web</h1>
+    <p>En esta tarea por usabilidad ofrezco al usuario la lista de identificadores de la base de datos correspondientes a las preguntas introducidas en la misma</p>
+    <p>Archivos:<br/> 1-ObtenerPregunta.php<br/>Obtengo mediante formulario la id de la pregunta y ese dato es con el que establezco la función del servidor<br/> 1-ObtenerPreguntaSW.php</p>
+    <p>"//Para crear el wsdl
+/*  $soapclient2 = new nusoap_client('ObtenerPreguntaSW.php');
+    $result2 = $soapclient2->call('obtener');
+*/"</p>
+<p><a href="http://s546876151.mialojamiento.es/sw/ObtenerPreguntaSW.php?wsdl" target="_blank" >Ver ws creado </a></p>
+<p>La funci&oacute; que he creado en SW <br/>"function obtener($pregunta){  
+    $idPregunta = (int) $pregunta;
+    $mysqli = mysqli_connect("db714056396.db.1and1.com", "dbo714056396", "LOSfablos1967_", "db714056396");
+    if (!$mysqli) {
+        die ("Fallo al conectar a MySQL: " . mysqli_connect_error());
+    }
+    $sql ="SELECT * FROM preguntas WHERE id = '$idPregunta'";
+
+    $resultado = mysqli_query($mysqli, $sql);
+    if(mysqli_num_rows($resultado) >0){
+        while($row = mysqli_fetch_array($resultado)){
+            $autor= $row['email'];
+            $enunciado= $row['enunciado'];
+            $correcta= $row['correcta'];
+            $haywhile= 'estamos en el while';
+        }
+        return 'en if '.$idPregunta.$haywhile.$autor.'-'.$enunciado.'-'.$correcta;
+    }else{
+        $autor= '';
+        $enunciado='';
+        $correcta= '';
+        return 'en else idPregunta '.$idPregunta.' pregunta '.$pregunta.$haywhile.$autor.'-'.$enunciado.'-'.$correcta;
+    }
+}      "</p>Posteriormente invoco al servicio<br/>"
+$soapclient2 = new nusoap_client('http://s546876151.mialojamiento.es/sw/ObtenerPreguntaSW.php?wsdl ',true);
+$result2 = $soapclient2->call('obtener', array('pregunta' => $idPregunta) );
+$autor = explode('enunciado-',$result2 );
+$enunciado = explode('correcta-',$autor[1] );"<p>
+    <img src="../img/CapturaObtenerP.png" width="800" height="auto" />
+       
+   </body>
+</html>

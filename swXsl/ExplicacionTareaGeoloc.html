@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Laboratorio 4</title>
+        
+    </head>
+    <body>
+    <h1>Laboratorio 4-Tarea opcional 2 Geolocalizaci&oacute;n</h1>
+    <p>En esta tarea mediante el servicio de <a href="https://www.geoplugin.com/quickstart" target="_blank">Geolocalizaci&oacute;n</a> obtengo un objeto JSON del que saco la informaci&oacute;n requerida</p>
+    <p>Archivos:<br/> 1-creditos.php</p>
+    <p>"//$datosGeo1= var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR'])));
+$datosGeo= unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR']));
+
+echo 'Ciudad: '.$datosGeo['geoplugin_city']."<br/>";
+echo 'Regi&oacute;n: '.$datosGeo['geoplugin_region']."<br/>";
+echo 'Provincia: '.$datosGeo['geoplugin_regionName']."<br/>";
+echo 'Pa&iacute;s: '.$datosGeo['geoplugin_countryName']."<br/>";
+echo 'Continente: '.$datosGeo['geoplugin_continentName']."<br/>";
+echo 'Latitud: '.$datosGeo['geoplugin_latitude']."<br/>";
+echo 'Longitud: '.$datosGeo['geoplugin_longitude']."<br/>";
+echo 'Moneda: '.$datosGeo['geoplugin_currencyCode']."<br/>";"</p>
+    <img src="../img/CapturaGeo.png" width="800" height="auto" />
+       
+   </body>
+</html>

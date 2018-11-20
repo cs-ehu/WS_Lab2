@@ -19,14 +19,42 @@ if($foto=$_FILES["imgAdd"]["name"]){
 	imagecopyresized($nuevaimg,$idnuevaimg,0,0,0,0,200,180,$ancho,$alto);
 	imagejpeg($nuevaimg,"img/".$foto);
 } else{if($foto=="")$foto="quiz.jpg";}
-$sql ="INSERT INTO usuarios (email , nombre , password , foto, logueado ) VALUES 
-('$email' , '$nombre','$password','$foto' , 1 )";
-if (!mysqli_query($mysqli ,$sql)){
-	header('Location:Registrar.php');
-	exit();	}
-header('Location:gestionarPreguntas.php?usuario='.$nombre."&email=".$email."&foto=".$foto."&contadorUsuarios=".$contadorUsuarios);
-exit();	
+
+
+//incluimos la clase nusoap.php
+require_once('lib/nusoap.php');
+require_once('lib/class.wsdlcache.php');
+
+//creamos el objeto de tipo soapclient.
+$soapclient1 = new nusoap_client('http://ehusw.es/jav/ServiciosWeb/comprobarmatricula.php?wsdl ',true);
+//Llamamos la función que habíamos implementado en el Web Service e imprimimos lo que nos devuelve
+$result1 = $soapclient1->call('comprobar', array('x'=> $email) );
+
+
+/*Para crear el wsdl
+$soapclient2 = new nusoap_client('ComprobarContra.php');
+$result2 = $soapclient2->call('comprobar' );
+*/
+$soapclient2 = new nusoap_client('http://s546876151.mialojamiento.es/sw/ComprobarContra.php?wsdl ',true);
+$result2 = $soapclient2->call('comprobar', array('categoria' => $password, 'ticket' => '1010') );
+//$result2 = $soapclient2->call('comprobar', array('categoria' => $password) );
+//echo 'resultado es '.$result2;
+
+if($result2 == 'VALIDA' && $result1 == 'SI'){
+	$sql ="INSERT INTO usuarios (email , nombre , password , foto, logueado ) VALUES 
+	('$email' , '$nombre','$password','$foto' , 1 )";
+	if (!mysqli_query($mysqli ,$sql)){
+		header('Location:Registrar.php');
+		exit();	}
+	header('Location:gestionarPreguntas.php?usuario='.$nombre."&email=".$email."&foto=".$foto."&contadorUsuarios=".$contadorUsuarios);
+	exit();	
+} else{
+	header('Location:Registrar.php?errorRegistro=1');
+	exit();
 }
+
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,6 +73,7 @@ exit();
 		    <script src="js/jquery.min.js"></script>
 		     <script src="js/pregunta.js"></script>
 		     <script src="js/cargaImg.js"></script>
+
   </head>
   <body>
   <div id='page-wrap'>

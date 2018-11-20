@@ -29,6 +29,7 @@
 		<span><a href='VerPreguntasConFoto.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Ver Preguntas</a></span><br/><br/>
 		<span><a href='VerPreguntasXML.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Ver Preguntas XML</a></span><br/><br/>
 		<span><a href='gestionarPreguntas.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Gestionar preguntas</a></span><br/><br/>
+		<span><a href='ObtenerPregunta.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Obtener pregunta</a></span><br/><br/>
 		<span><a href='creditos.php?email=<?php echo $email;?>&usuario=<?php echo '"'.$usuario.'"';?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Creditos</a></span>
 	<?php }else{?>
 		<span><a href='layout.php'>Inicio</a></span><br/><br/>

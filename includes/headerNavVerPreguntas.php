@@ -27,7 +27,8 @@
 		<li style="float: left;margin-right: 12px;"><a href='pregunta.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Insertar Pregunta | </a></li>		
 		<li style="float: left;margin-right: 12px;"><a href='VerPreguntasConFoto.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Ver Preguntas | </a></li>
 		<li style="float: left;margin-right: 12px;"><a href='VerPreguntasXML.php?email=<?php echo $email;?>&usuario=<?php echo '"'.$usuario.'"';?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Ver Preguntas XML | </a></li>
-		<li style="float: left;margin-right: 12px;"><a href='gestionarPreguntas.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Gestionar Preguntas | </a></li>	
+		<li style="float: left;margin-right: 12px;"><a href='gestionarPreguntas.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Gestionar Preguntas | </a></li>
+		<li style="float: left;margin-right: 12px;"><a href='ObtenerPregunta.php?email=<?php echo $email;?>&usuario=<?php echo $usuario;?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Obtener Pregunta | </a></li>		
 		<li style="float: left;margin-right: 12px;"><a href='creditos.php?email=<?php echo $email;?>&usuario=<?php echo '"'.$usuario.'"';?>&foto=<?php echo $foto;?>&contadorUsuarios=<?php echo $contadorUsuarios;?>'>Creditos</a></li>
 	<?php }else{?>
 
