@@ -18,5 +18,11 @@
 		  <input type="button" value="LogIn" id="enviarLogin" />
 		</fieldset>
 		</form>
+		<form action='recuperarPass.php' id='formRecuperar' method="POST">
+			<label for="recuperarPass">¿Has olvidado el password? Escribe tu email: </label>
+			<input type="text" name="recuperarPass" id='recuperarPass' value="">
+			<br/><br/>
+			<input type="button" id="recuperar" value='Recuperar!'>
+		</form>
 	</div>
     </section>

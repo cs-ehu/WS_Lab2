@@ -103,7 +103,7 @@ border-radius: 12px;
 	float: left;
 }
 
-#enviarLogin, #enviarRegistro, #enviarBoton, #enviarBotonAjax, #enviarIdPregunta {
+#enviarLogin, #enviarRegistro, #enviarBoton, #enviarBotonAjax, #enviarIdPregunta, #enviarNuevoPass {
 	float: right;
 	width: 220px;
 	height: 40px;

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!$_SESSION['email'] || $_SESSION['rol'] != 'alumno' ){
+	header('Location:Login.php');
+	exit();
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>

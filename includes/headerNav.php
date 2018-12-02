@@ -1,6 +1,6 @@
 <header class='main' id='h1'>
 		<div id="logIn">
-			<?php if( isset($_GET['usuario']) && isset($_GET['foto']) && isset($_GET['email']) && isset($_GET['contadorUsuarios']) ){
+			<?php if( isset($_GET['usuario']) && isset($_GET['foto']) && isset($_GET['email']) && isset($_GET['contadorUsuarios']) && $_SESSION['email'] && $_SESSION['rol'] == 'alumno'){
 				$email = $_GET['email'];
 				?>
 		
@@ -17,7 +17,7 @@
 		<h2 class="titulo">Quiz: el juego de las preguntas</h2>
     </header>
 	<nav class='main' id='n1' role='navigation'>
-		<?php if( isset($_GET['usuario']) && isset($_GET['foto']) && isset($_GET['email']) && isset($_GET['contadorUsuarios'])){
+		<?php if( isset($_GET['usuario']) && isset($_GET['foto']) && isset($_GET['email']) && isset($_GET['contadorUsuarios']) && $_SESSION['email'] && $_SESSION['rol'] == 'alumno'){
 			$email = $_GET['email'];
 			$usuario = $_GET['usuario'];
 			$foto = $_GET['foto'];

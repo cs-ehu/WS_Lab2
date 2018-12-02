@@ -21,6 +21,7 @@ if($foto=$_FILES["imgAdd"]["name"]){
 } else{if($foto=="")$foto="quiz.jpg";}
 
 
+
 //incluimos la clase nusoap.php
 require_once('lib/nusoap.php');
 require_once('lib/class.wsdlcache.php');
@@ -41,8 +42,14 @@ $result2 = $soapclient2->call('comprobar', array('categoria' => $password, 'tick
 //echo 'resultado es '.$result2;
 
 if($result2 == 'VALIDA' && $result1 == 'SI'){
-	$sql ="INSERT INTO usuarios (email , nombre , password , foto, logueado ) VALUES 
-	('$email' , '$nombre','$password','$foto' , 1 )";
+	session_start();
+	$_SESSION['email']= $email;
+    $_SESSION['nombre']= $nombre;
+	$_SESSION['foto']= $foto;
+    $_SESSION['rol']= 'alumno';
+    $passHash = password_hash($password , PASSWORD_DEFAULT);
+	$sql ="INSERT INTO usuarios (email , nombre , password , foto, logueado, rol ) VALUES 
+	('$email' , '$nombre','$passHash','$foto' , 1 , 'alumno')";
 	if (!mysqli_query($mysqli ,$sql)){
 		header('Location:Registrar.php');
 		exit();	}

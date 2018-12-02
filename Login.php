@@ -3,16 +3,37 @@ include("includes/conexiones.php");
 if(isset($_POST['email']) && isset($_POST['password'])){
 $email= $_POST['email'];
 $password = $_POST['password'];
+$passHash = $password;//password_hash($password , PASSWORD_DEFAULT);
 $contadorUsuarios=0;
-$sql ="SELECT * FROM usuarios WHERE email='$email' AND password= '$password' ";
+//$sql ="SELECT * FROM usuarios WHERE email='$email' AND password= '$password' ";
+$sql ="SELECT * FROM usuarios WHERE email='$email'  ";
 $result = mysqli_query($mysqli ,$sql);
 if (mysqli_num_rows($result) >0){
-$contadorUsuarios= ($contadorUsuarios + 1);
 $usuarioLogueado = mysqli_fetch_array($result);
-$sqlLog="UPDATE usuarios SET logueado = 1 WHERE email='$email' AND password= '$password'";
-mysqli_query($mysqli ,$sqlLog);
-header('Location:gestionarPreguntas.php?usuario='.$usuarioLogueado['nombre']."&email=".$usuarioLogueado['email']."&foto=".$usuarioLogueado['foto']."&contadorUsuarios=".$contadorUsuarios);
-exit();	
+$passwordDB = $usuarioLogueado['password'];
+if($usuarioLogueado['rol'] == 'alumno'){
+	if(password_verify($passHash, $passwordDB)){
+		session_start();
+		$contadorUsuarios= ($contadorUsuarios + 1);
+		$sqlLog="UPDATE usuarios SET logueado = 1 WHERE email='$email' ";
+		mysqli_query($mysqli ,$sqlLog);
+		$_SESSION['email']= $email;
+		$_SESSION['rol']= $usuarioLogueado['rol'];
+		header('Location:gestionarPreguntas.php?usuario='.$usuarioLogueado['nombre']."&email=".$usuarioLogueado['email']."&foto=".$usuarioLogueado['foto']."&contadorUsuarios=".$contadorUsuarios);
+		exit();	
+	}	
+}else if($usuarioLogueado['rol'] == 'admin'){
+	if($usuarioLogueado['password'] == $password){
+		session_start();
+		$contadorUsuarios= ($contadorUsuarios + 1);
+		//$sqlLog="UPDATE usuarios SET logueado = 1 WHERE email='$email' and password= '$password'";
+		//mysqli_query($mysqli ,$sqlLog);
+		$_SESSION['email']= $email;
+		$_SESSION['rol']= $usuarioLogueado['rol'];
+		header('Location:GestionarCuentas.php?usuario='.$usuarioLogueado['nombre']."&email=".$usuarioLogueado['email']."&foto=".$usuarioLogueado['foto']."&contadorUsuarios=".$contadorUsuarios);
+		exit();	
+	}
+}
 }else{
 header('Location:Login.php?errorLogIn=errorLogIn&errorEmail='.$email);
 exit();}
@@ -35,6 +56,17 @@ exit();}
 		    <script src="js/jquery.min.js"></script>
 		     <script src="js/pregunta.js"></script>
 		     <script src="js/cargaImg.js"></script>
+		     <script type="text/javascript">
+		     $(document).ready(function(){
+		     	//if
+		     	$('#recuperar').click(function(){
+		     		var email = $('#recuperarPass').val();
+		     		if(email != '')
+		            $('#formRecuperar').submit();
+		     		//alert('hola'+ email );
+		     	});
+		     });
+		     </script>
   </head>
   <body>
   <div id='page-wrap'>

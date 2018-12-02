@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Laboratorio 7 tarea 2</title>
+        
+    </head>
+    <body>
+    <h1>Laboratorio 7-Tarea opcional 2</h1>
+    <p>A&ntilde;adir enlace en la p&aacute;gina principal de usuarios an&oacute;nimos: <br/>Lo hago desde el login ya que parece el sitio adecuado a dar la opci&oacute;n de recuperar contrase&ntilde;a olvidada. </p>
+    <img src="../img/Captura7B_1.PNG" width="800" height="auto" />
+    <p>Se muestra el mensaje de que se ha solicitado satisfactoriamente la recuperaci&oacute;n del password<br/>He introducido fecha y hora para dar un tiempo para recuperar el password.</p>
+    <p>En el link que envio a ese correo envio tambi&eacute; datos fecha y hora <br/>http://s546876151.mialojamiento.es/sw/nuevoPass.php?email='.$email.'&fecha='.$fecha.'&hora='.$hora.'">Recuperar datos</a>';</p>
+<p>Se ve el formulario de cambio si la hora actual no supera en cinco horas a la del env&iacuteo; del mail.</p>
+<p>"
+    if(!isset($_POST['email'])){
+        if(isset($_GET['fecha']) && isset($_GET['hora'])){
+        date_default_timezone_set("Europe/Madrid");
+        $fechaActual =  date("Y/m/d");
+        $horaActual = date("h:i:sa");
+        $horaMasCinco =date('h:i:sa',strtotime('+4 hour ',strtotime($_GET['hora'])));
+        if($fechaActual == $_GET['fecha'] && $horaActual >= $horaMasCinco){
+    "</p>
+    <img src="../img/Captura7B_2.PNG" width="800" height="auto" />
+    <p>El destinatario recibe correo con el link para cambiarla</p>
+    <img src="../img/Captura7B_3.PNG" width="800" height="auto" />
+    <p>Introducimos la nueva contrase&ntilde;a</p>
+    <img src="../img/Captura7B_4.PNG" width="800" height="auto" />
+    <p>Nos dice que ha sido modificada y ya podemos loguearnos con la nueva contrase&ntilde;a</p>
+    <img src="../img/Captura7B_5.PNG" width="800" height="auto" />
+    <p>Vemos que en la base de datos se ha guardado cifrada</p>
+   <img src="../img/Captura7B_6.PNG" width="800" height="auto" />
+   <p>Nos logueamos para comprobar con el nuevo password. <br/>Antes era 123456789 $2y$10$kRN3c1uc2wd2bu.4H5FWkO7zlPMBp.pEYrGxNercb7BN4Mo3aYxda<br/> Ahora es 1234567891 $2y$10$Do6eNBpMVRddthrO7vkLJu/kTOCY6MlAnyf1BCapuLpV4yhTnzY5S</p>
+    <img src="../img/Captura7B_7.PNG" width="800" height="auto" />
+
+       
+   </body>
+</html>

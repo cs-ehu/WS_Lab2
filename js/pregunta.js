@@ -50,7 +50,7 @@ $(document).ready(function(){
 			var patt2 = /[a-zA-Z0-9]*\s{1}[a-zA-Z0-9]*/;
 		    var result = email.match(patt1);
 		    var nombreApellido = nombre.match(patt2);
-		    if(!result) alert("El email ha de ser terminado en tres cifras y @ikasle.ehu.eus");		
+		    //if(!result) alert("El email ha de ser terminado en tres cifras y @ikasle.ehu.eus");		
 		    else if(!nombreApellido)alert("Debes darme el nombre y al menos un apellido, por favor");
 		    else if(password.length<8  ) alert("El password ha de tener 8 caracteres como mínimo");
 		    else if(password != password2) alert("El password ha de ser el mismo");
