@@ -48,13 +48,22 @@ if($result2 == 'VALIDA' && $result1 == 'SI'){
 	$_SESSION['foto']= $foto;
     $_SESSION['rol']= 'alumno';
     $passHash = password_hash($password , PASSWORD_DEFAULT);
+    $sqlComp="SELECT * FROM usuarios WHERE email = '$email' ";
+    $resComp =mysqli_query($mysqli, $sqlComp);
+    if(mysqli_num_rows($resComp) >= 1){
+		header('Location:Registrar.php?errorRegistro=1');
+		exit();
+    }else{
+
+    
 	$sql ="INSERT INTO usuarios (email , nombre , password , foto, logueado, rol ) VALUES 
 	('$email' , '$nombre','$passHash','$foto' , 1 , 'alumno')";
 	if (!mysqli_query($mysqli ,$sql)){
 		header('Location:Registrar.php');
 		exit();	}
 	header('Location:gestionarPreguntas.php?usuario='.$nombre."&email=".$email."&foto=".$foto."&contadorUsuarios=".$contadorUsuarios);
-	exit();	
+	exit();
+	}	
 } else{
 	header('Location:Registrar.php?errorRegistro=1');
 	exit();

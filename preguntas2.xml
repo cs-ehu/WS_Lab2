@@ -30,5 +30,5 @@
 			<value> SMTP </value>
 			<value> Ninguna es correcta </value>
 		</incorrectResponses>
-	</assessmentItem>
-<assessmentItem subject="otros" author="consuelo111@ikasle.ehu.eus"><itemBody><p>insertar ajax xml</p></itemBody><correctResponse><value>correcta</value></correctResponse><incorrectResponses><value>incorrecta1</value><value>incorrecta2</value><value>incorrecta3</value></incorrectResponses></assessmentItem></assessmentItems>
+	</assessmentItem><assessmentItem subject="CSS" author="pruete001@ikasle.ehu.eus"><itemBody><p>Background-color es un elemento?</p></itemBody><correctResponse><value>No, es un atributo de CSS</value></correctResponse><incorrectResponses><value>Si, se usa para dar el color al fondo de la p&#xE1;gina</value><value>Si, es para el color del texto</value><value>No pero tampoco es un atributo de CSS, sino un selector de atributos</value></incorrectResponses></assessmentItem>
+</assessmentItems>

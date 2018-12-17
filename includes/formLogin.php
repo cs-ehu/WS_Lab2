@@ -24,5 +24,26 @@
 			<br/><br/>
 			<input type="button" id="recuperar" value='Recuperar!'>
 		</form>
+		<div style="margin-top: 100px;">
+			
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+		</div>
+		<script type="text/javascript">
+			
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+		</script>
 	</div>
     </section>
